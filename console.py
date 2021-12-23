@@ -132,17 +132,10 @@ class HBNBCommand(cmd.Cmd):
                 if "_" in value:
                     value = value.replace('_', ' ')
             else:
-                if '.' in arg[1]:
-                    try:
-                        value = float(arg[1])
-                    except:
+                try:
+                        value = int(arg[1])
+                except:
                         continue
-
-                    else:
-                        try:
-                            value = int(arg[1])
-                        except:
-                            continue
             if value != "":
                 setattr(new_instance, arg[0], value)
         print(new_instance.id)
